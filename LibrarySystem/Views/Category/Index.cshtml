@@ -1,0 +1,25 @@
+﻿@model IEnumerable<LibrarySystem.Models.Category>
+
+<h2>Categories</h2>
+<a class="btn btn-primary" href="/Category/Add">Add Category</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.CategoryName</td>
+                <td>
+                    <a class="btn btn-sm btn-info" href="/Category/Edit/@category.CategoryId">Edit</a> |
+                    <a class="btn btn-sm btn-danger" href="/Category/Delete/@category.CategoryId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

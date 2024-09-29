@@ -1,0 +1,25 @@
+﻿@model IEnumerable<LibrarySystem.Models.BorrowProcess>
+
+<h2>Borrowed Books</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Book Title</th>
+            <th>Borrow Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var borrow in Model)
+        {
+            <tr>
+                <td>@borrow.Book.Title</td>
+                <td>@borrow.BorrowDate.ToShortDateString()</td>
+                <td>
+                    <a href="/BorrowProcess/Return/@borrow.BorrowProcessId">Return</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

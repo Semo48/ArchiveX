@@ -1,0 +1,8 @@
+﻿@model LibrarySystem.Models.User
+
+<h2>@Model.Name's Profile</h2>
+
+<p>Email: @Model.Email</p>
+<p>Name: @Model.Name</p>
+
+<a href="@Url.Action("Edit", "User", new { id = Model.UserId })" class="btn btn-primary">Edit Profile</a>

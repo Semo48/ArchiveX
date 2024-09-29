@@ -1,0 +1,27 @@
+﻿@model IEnumerable<LibrarySystem.Models.Review>
+@{
+    var bookId = ViewBag.BookId;
+}
+
+<h2>Reviews</h2>
+<a href="/Review/Add?bookId=@bookId">Add Review</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Rating</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var review in Model)
+        {
+            <tr>
+                <td>@review.User.Name</td>
+                <td>@review.Rating</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

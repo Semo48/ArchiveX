@@ -1,0 +1,79 @@
+﻿@* @model IEnumerable<LibrarySystem.Models.Book>
+
+<h2>Books</h2>
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Available Copies</th>
+                <th>Total Copies</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@book.AvailableCopies</td>
+                    <td>@book.TotalCopies</td>
+                    <td>
+                        <a href="/Book/Edit/@book.BookId">Edit</a> |
+                        <a href="/Book/Delete/@book.BookId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a href="/Home/Book/Add">Add New Book</a> *@
+
+
+
+
+
+@model IEnumerable<LibrarySystem.Models.Book>
+
+<h2>Books</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Available Copies</th>
+                <th>Total Copies</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@book.AvailableCopies</td>
+                    <td>@book.TotalCopies</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Book", new { id = book.BookId })">Edit</a> |
+                        <a href="@Url.Action("Delete", "Book", new { id = book.BookId })">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No books available at the moment.</p>
+}
+
+<a href="@Url.Action("Add", "Book")" class="btn btn-primary">Add New Book</a>
+
